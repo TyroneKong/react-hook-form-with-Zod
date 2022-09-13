@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "post": {
+        "title": "The war of kings",
+        "author": "Brandon Sanderson"
+      },
+      "id": 1
+    },
+    {
+      "post": {
+        "title": "Name of the WInd",
+        "author": "Patrick Roffuss"
+      },
+      "id": 2
+    },
+    {
+      "post": {
+        "title": "Harry Potter ",
+        "author": "JK Rowling"
+      },
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -10,6 +10,9 @@ import {
 } from "@chakra-ui/react";
 import { z, ZodError } from "zod";
 import axios from "axios";
+import Query from "./components/Query";
+import Mutation from "./components/Mutation";
+import Transform from "./components/Transform";
 
 // zod schema
 const userInput = z
@@ -52,7 +55,15 @@ function App() {
   const submit = async <T extends object>(data: T) => {
     try {
       const userData = userInput.parse(data);
-
+      console.log(userData);
+      // toast({
+      //   position: "top-left",
+      //   render: () => (
+      //     <Box color="white" p={3} bg="blue.500">
+      //       Hello World
+      //     </Box>
+      //   ),
+      // });
       toast({
         title: "submitted",
         status: "success",
@@ -62,10 +73,10 @@ function App() {
       return await axios.post(`http://localhost:8001/todos`, userData);
     } catch (error) {
       if (error instanceof ZodError) {
-        return {
+        console.log({
           sucess: false,
           errors: error.flatten().fieldErrors,
-        };
+        });
       } else {
         throw error;
       }
@@ -136,6 +147,12 @@ function App() {
             <Button type="submit">Submit</Button>
           </>
         </form>
+      </div>
+      <div className="text-3xl text-blue-400 mt-10">
+        <h2> Tanstack React Query v4 Practice</h2>
+        <Query />
+        <Mutation />
+        <Transform />
       </div>
     </div>
   );
